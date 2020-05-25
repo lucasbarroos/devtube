@@ -37,7 +37,7 @@ const Picture = 'https://scontent.fpnz4-1.fna.fbcdn.net/v/t1.0-9/67572121_209572
 const IconStyle = {
   marginLeft: 25,
   cursor: 'pointer',
-  color: 'white',
+  color: '#717478',
 };
 
 const DropdownIconStyle = {
