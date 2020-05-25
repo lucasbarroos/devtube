@@ -43,7 +43,7 @@ export const VideoDuration = styled.div`
     top: 10px;
     right: 25px;
     margin-right: 10px;
-    font-size: 10px;
+    font-size: 12px;
     color: white;
     padding: 5px 10px 5px 10px;
     border-radius: 10px;
