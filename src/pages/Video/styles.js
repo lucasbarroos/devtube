@@ -12,6 +12,7 @@ export const Title = styled.div`
 `;
 
 export const VideoInfo = styled.div`
+    position: relative;
     margin: 10px 10px 10px 10px;
     padding-bottom: 20px;
     border-bottom: 0.2px solid white;
@@ -53,6 +54,43 @@ export const DateVideo = styled.div`
     color: ghostwhite;
 `;
 
+export const RecommendButton = styled.button`
+    position: absolute;
+    top: 10px;
+    right: 260px;
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    color: white;
+    border: 1px solid white;
+    padding: 10px;    
+    cursor: pointer;
+`;
+
+export const SubscribeButton = styled.button`
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    color: red;
+    border: 1px solid red;
+    padding: 10px;    
+    cursor: pointer;  
+`;
+
+export const Description = styled.div`
+    font-size: 1rem;
+    color: white;
+    width: 75%;
+    margin: 10px 40px 0px 80px;
+`;
+
 export const RelatedVideoName = styled.div`
     color: white;
     font-size: 1.4rem;
@@ -64,7 +102,8 @@ export const RelatedVideoCard = styled.div`
     position: relative;
     border-radius: 15px;
     margin-left: 20px;
-    margin-bottom: 100px;
+    margin-bottom: 80px;
+    cursor: pointer;
 `;
 
 export const RelatedVideoBanner = styled.img`

@@ -10,6 +10,9 @@ import {
   ChannelLogo,
   ChannelName,
   DateVideo,
+  Description,
+  RecommendButton,
+  SubscribeButton,
   RelatedVideoInfo,
   RelatedVideoName,
   RelatedVideoCard,
@@ -27,6 +30,7 @@ const video = {
     name: 'Rocketseat',
     uri: 'https://pbs.twimg.com/profile_images/953595371875422210/0pWsfSSp_400x400.jpg',
   },
+  description: 'Essa é a terceira parte de uma série de vídeos onde construimos um sistema completo de upload de arquivos com NodeJS e ReactJS, e nesse vídeo vamos colocar essas aplicações em produção. Quer saber como funciona o deploy de uma aplicação NodeJS no back-end ou mesmo o deploy de uma aplicação ReactJS no front-end? Vem comigo!',
   duration: '38:23',
 };
 
@@ -57,6 +61,16 @@ export default function Video() {
               <VideoInfo>
                 <Title>{video.title}</Title>
                 <VideoViews>120k views</VideoViews>
+                <RecommendButton>
+                  Recomendar
+                  {' '}
+                  14k
+                </RecommendButton>
+                <SubscribeButton>
+                  Inscricao
+                  {' '}
+                  32k
+                </SubscribeButton>
               </VideoInfo>
             </Grid>
             <Grid item lg={12} align="left">
@@ -65,6 +79,7 @@ export default function Video() {
                 <ChannelName>{video.channel.name}</ChannelName>
                 <DateVideo>29 Jun</DateVideo>
               </ChannelInfo>
+              <Description>{video.description}</Description>
             </Grid>
           </Grid>
         </Grid>

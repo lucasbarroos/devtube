@@ -7,7 +7,7 @@ export default function VideoPlayer({ videoId }) {
     width: '100%',
     borderRadius: '15px',
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
       showinfo: 0,
       modestbranding: 1,
       rel: 0,
