@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import {
   Container,
@@ -40,8 +41,10 @@ export default function Home() {
           videos.map((el) => (
             <Grid item lg={3} align="center">
               <VideoCard>
-                <VideoDuration>{el.duration}</VideoDuration>
-                <VideoBanner src={el.banner} />
+                <Link to="/video">
+                  <VideoDuration>{el.duration}</VideoDuration>
+                  <VideoBanner src={el.banner} />
+                </Link>
                 <VideoTitle>{el.title}</VideoTitle>
                 <VideoChannel>{el.channel}</VideoChannel>
               </VideoCard>

@@ -29,6 +29,7 @@ export const VideoTitle = styled.div`
     color: white;
     font-size: 1.3rem;
     font-weight: 600;
+    text-decoration: none !important;
 `;
 
 export const VideoInfo = styled.div`
@@ -54,4 +55,5 @@ export const VideoChannel = styled.div`
     text-align: left;
     color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
+    text-decoration: none !important;
 `;

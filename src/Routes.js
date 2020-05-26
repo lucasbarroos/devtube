@@ -5,6 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Home from './pages/Home/index';
+import Video from './pages/Video/index';
 
 export default function router() {
   return (
@@ -12,6 +13,9 @@ export default function router() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/video">
+          <Video />
         </Route>
       </Switch>
     </Router>
