@@ -8,15 +8,47 @@ export const Container = styled.div`
 export const Title = styled.div`
     font-size: 2rem;
     color: white;
-    font-weight: 600;
+    font-weight: 200;
 `;
 
 export const VideoInfo = styled.div`
-    margin: 10px 10px 10px 80px;
+    margin: 10px 10px 10px 10px;
+    padding-bottom: 20px;
+    border-bottom: 0.2px solid white;
 `;
 
-export const VideoContainer = styled.img`
-    background-color: white;
-    width: 90%;
-    border-radius: 15px;
+export const VideoViews = styled.div`
+    font-size: 1rem;
+    color: ghostwhite;
+    padding-top: 10px;
+`;
+
+export const ChannelInfo = styled.div`
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+`;
+
+export const ChannelName = styled.div`
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    padding: 10px 0px 0px 10px;
+    cursor: pointer;
+`;
+
+export const ChannelLogo = styled.img`
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+`;
+
+export const DateVideo = styled.div`
+    position: absolute;
+    bottom: 10px;
+    left: 70px;
+    font-size: 1rem;
+    color: ghostwhite;
 `;
