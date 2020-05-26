@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import VideoPlayer from '../../components/VideoPlayer/index';
+import VideoService from '../../services/Video/index';
 import {
   Container,
   Title,
@@ -49,6 +50,8 @@ const relatedVideos = [{
 }];
 
 export default function Video() {
+  const [video, setVideo] = useState({});
+
   return (
     <Container>
       <Grid container>
