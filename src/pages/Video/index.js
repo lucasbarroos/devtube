@@ -10,6 +10,13 @@ import {
   ChannelLogo,
   ChannelName,
   DateVideo,
+  RelatedVideoInfo,
+  RelatedVideoName,
+  RelatedVideoCard,
+  RelatedVideoBanner,
+  RelatedVideoTitle,
+  RelatedVideoViews,
+  RelatedVideoChannel,
 } from './styles';
 
 const video = {
@@ -23,11 +30,25 @@ const video = {
   duration: '38:23',
 };
 
+const relatedVideos = [{
+  title: 'Vanilla JS na pratica',
+  banner: 'https://i.ytimg.com/vi/-OqZzV__hts/maxresdefault.jpg',
+  video: 'https://www.youtube.com/watch?v=-OqZzV__hts',
+  channel: { name: 'Red Stapler' },
+  duration: '2:17',
+}, {
+  title: 'Introducao ao Nodejs',
+  banner: 'https://rocketseat.com.br/static/images/og/nodejs.png',
+  video: 'https://www.youtube.com/watch?v=-OqZzV__hts',
+  channel: { name: 'Rocketseat' },
+  duration: '38:23',
+}];
+
 export default function Video() {
   return (
     <Container>
       <Grid container>
-        <Grid item lg={9} align="center">
+        <Grid item lg={10} align="center">
           <Grid container>
             <Grid item lg={12} align="center">
               <VideoPlayer videoId={video.video} style={{ borderRadius: 15 }} />
@@ -47,8 +68,28 @@ export default function Video() {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item lg={3}>
-          {/* Videos Relacionados */}
+        <Grid item lg={2}>
+          <Grid container>
+            <Grid item lg={12}>
+              <RelatedVideoName>
+                Recommended Videos
+              </RelatedVideoName>
+            </Grid>
+            <Grid item lg={12}>
+              {
+                relatedVideos.map((el) => (
+                  <RelatedVideoCard>
+                    <RelatedVideoBanner src={el.banner} />
+                    <RelatedVideoTitle>{el.title}</RelatedVideoTitle>
+                    <RelatedVideoInfo>
+                      <RelatedVideoChannel>{el.channel.name}</RelatedVideoChannel>
+                      <RelatedVideoViews>22k views</RelatedVideoViews>
+                    </RelatedVideoInfo>
+                  </RelatedVideoCard>
+                ))
+              }
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
     </Container>
