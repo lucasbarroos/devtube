@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: white;
     font-weight: 200;
 `;
@@ -57,15 +57,15 @@ export const DateVideo = styled.div`
 export const RecommendButton = styled.button`
     position: absolute;
     top: 10px;
-    right: 260px;
-    height: 40px;
-    width: 250px;
+    right: 210px;
+    height: 30px;
+    width: 200px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0);
-    font-size: 18px;
+    font-size: 14px;
     color: white;
     border: 1px solid white;
-    padding: 10px;    
+    padding: 5px;    
     cursor: pointer;
 `;
 
@@ -73,14 +73,14 @@ export const SubscribeButton = styled.button`
     position: absolute;
     right: 0px;
     top: 10px;
-    height: 40px;
-    width: 250px;
+    height: 30px;
+    width: 200px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0);
-    font-size: 18px;
+    font-size: 14px;
     color: red;
     border: 1px solid red;
-    padding: 10px;    
+    padding: 5px;    
     cursor: pointer;  
 `;
 
@@ -114,7 +114,7 @@ export const RelatedVideoBanner = styled.img`
 `;
 
 export const RelatedVideoTitle = styled.div`
-    font-size: 1.2rem;
+    font-size: 1rem;
     position: absolute;
     color: white;
 `;
@@ -129,12 +129,12 @@ export const RelatedVideoInfo = styled.div`
 `;
 
 export const RelatedVideoChannel = styled.div`        
-    font-size: 14px;
+    font-size: 12px;
     width: 50%;
 `;
 
 export const RelatedVideoViews = styled.div`
     text-align: right;
-    font-size: 14px;
+    font-size: 12px;
     width: 50%;
 `;

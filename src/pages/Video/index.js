@@ -54,10 +54,10 @@ export default function Video() {
       <Grid container>
         <Grid item lg={10} align="center">
           <Grid container>
-            <Grid item lg={12} align="center">
+            <Grid item lg={12} md={12} align="center">
               <VideoPlayer videoId={video.video} style={{ borderRadius: 15 }} />
             </Grid>
-            <Grid item lg={12} align="left">
+            <Grid item lg={12} md={12} align="left">
               <VideoInfo>
                 <Title>{video.title}</Title>
                 <VideoViews>120k views</VideoViews>
@@ -73,7 +73,7 @@ export default function Video() {
                 </SubscribeButton>
               </VideoInfo>
             </Grid>
-            <Grid item lg={12} align="left">
+            <Grid item lg={12} md={12} align="left">
               <ChannelInfo>
                 <ChannelLogo src={video.channel.uri} />
                 <ChannelName>{video.channel.name}</ChannelName>
