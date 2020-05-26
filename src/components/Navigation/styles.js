@@ -78,7 +78,7 @@ export const PanelPicture = styled.img`
     border-radius: 50%;
     cursor: pointer;
     margin-left: 20px;
-    margin-right: 40px;
+    margin-right: 0px;
 `;
 
 export const PanelItem = styled.div`
