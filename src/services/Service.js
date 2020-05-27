@@ -21,9 +21,8 @@ class Service {
   }
 
   get({ params, id, includeInactive } = {}) {
-    console.log(id)
     return api
-      .get(`${this.route}${id? `/${id}` : 's'}`)
+      .get(`${this.route}${id? `/${id}` : 's'}`, id ? null : { params })
       .then((response) => ({
         data: response.data.docs || response.data,
         total: response.data.total || response.data.length,
