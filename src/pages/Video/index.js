@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer/index';
 import VideoService from '../../services/Video/index';
 import {
@@ -24,35 +24,10 @@ import {
   RelatedVideoChannel,
 } from './styles';
 
-// const video = {
-//   title: 'Introducao ao Nodejs',
-//   banner: 'https://rocketseat.com.br/static/images/og/nodejs.png',
-//   video: '-j7vLmBMsEU',
-//   channel: {
-//     name: 'Rocketseat',
-//     uri: 'https://pbs.twimg.com/profile_images/953595371875422210/0pWsfSSp_400x400.jpg',
-//   },
-//   description: 'Essa é a terceira parte de uma série de vídeos onde construimos um sistema completo de upload de arquivos com NodeJS e ReactJS, e nesse vídeo vamos colocar essas aplicações em produção. Quer saber como funciona o deploy de uma aplicação NodeJS no back-end ou mesmo o deploy de uma aplicação ReactJS no front-end? Vem comigo!',
-//   duration: '38:23',
-// };
-
-const relatedVideos = [{
-  title: 'Vanilla JS na pratica',
-  banner: 'https://i.ytimg.com/vi/-OqZzV__hts/maxresdefault.jpg',
-  video: 'https://www.youtube.com/watch?v=-OqZzV__hts',
-  channel: { name: 'Red Stapler' },
-  duration: '2:17',
-}, {
-  title: 'Introducao ao Nodejs',
-  banner: 'https://rocketseat.com.br/static/images/og/nodejs.png',
-  video: 'https://www.youtube.com/watch?v=-OqZzV__hts',
-  channel: { name: 'Rocketseat' },
-  duration: '38:23',
-}];
-
 export default function Video() {
   const { id } = useParams();
   const [video, setVideo] = useState({});
+  const [relatedVideos, setRelatedVideos] = useState([]);
 
   const getVideo = async () => {
     const response = await VideoService.get({ id });
@@ -61,9 +36,17 @@ export default function Video() {
     }
   };
 
+  const getRelatedVideos = async () => {
+    const response = await VideoService.get();
+    if (response.ok) {
+      setRelatedVideos(response.data);
+    }
+  };
+
   useEffect(() => {
     getVideo();
-  }, []);
+    getRelatedVideos();
+  }, [video]);
 
   return (
     <Container>
@@ -109,14 +92,16 @@ export default function Video() {
             <Grid item lg={12}>
               {
                 relatedVideos.map((el) => (
-                  <RelatedVideoCard>
-                    <RelatedVideoBanner src={el.banner} />
-                    <RelatedVideoTitle>{el.title}</RelatedVideoTitle>
-                    <RelatedVideoInfo>
-                      <RelatedVideoChannel>{el.channel.name}</RelatedVideoChannel>
-                      <RelatedVideoViews>22k views</RelatedVideoViews>
-                    </RelatedVideoInfo>
-                  </RelatedVideoCard>
+                  <Link to={`/video/${el._id}`}>
+                    <RelatedVideoCard>
+                      <RelatedVideoBanner src={el.banner} />
+                      <RelatedVideoTitle>{el.title}</RelatedVideoTitle>
+                      <RelatedVideoInfo>
+                        <RelatedVideoChannel>{el.channel ? el.channel.name : ''}</RelatedVideoChannel>
+                        <RelatedVideoViews>22k views</RelatedVideoViews>
+                      </RelatedVideoInfo>
+                    </RelatedVideoCard>
+                  </Link>
                 ))
               }
             </Grid>
