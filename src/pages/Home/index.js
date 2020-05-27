@@ -41,7 +41,7 @@ export default function Home() {
           videos.map((el) => (
             <Grid item lg={3} align="center">
               <VideoCard>
-                <Link to="/video">
+                <Link to={`/video/${el._id}`}>
                   <VideoDuration>{el.duration}</VideoDuration>
                   <VideoBanner src={el.banner} />
                 </Link>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
+import { useParams } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer/index';
 import VideoService from '../../services/Video/index';
 import {
@@ -23,17 +24,17 @@ import {
   RelatedVideoChannel,
 } from './styles';
 
-const video = {
-  title: 'Introducao ao Nodejs',
-  banner: 'https://rocketseat.com.br/static/images/og/nodejs.png',
-  video: '-j7vLmBMsEU',
-  channel: {
-    name: 'Rocketseat',
-    uri: 'https://pbs.twimg.com/profile_images/953595371875422210/0pWsfSSp_400x400.jpg',
-  },
-  description: 'Essa é a terceira parte de uma série de vídeos onde construimos um sistema completo de upload de arquivos com NodeJS e ReactJS, e nesse vídeo vamos colocar essas aplicações em produção. Quer saber como funciona o deploy de uma aplicação NodeJS no back-end ou mesmo o deploy de uma aplicação ReactJS no front-end? Vem comigo!',
-  duration: '38:23',
-};
+// const video = {
+//   title: 'Introducao ao Nodejs',
+//   banner: 'https://rocketseat.com.br/static/images/og/nodejs.png',
+//   video: '-j7vLmBMsEU',
+//   channel: {
+//     name: 'Rocketseat',
+//     uri: 'https://pbs.twimg.com/profile_images/953595371875422210/0pWsfSSp_400x400.jpg',
+//   },
+//   description: 'Essa é a terceira parte de uma série de vídeos onde construimos um sistema completo de upload de arquivos com NodeJS e ReactJS, e nesse vídeo vamos colocar essas aplicações em produção. Quer saber como funciona o deploy de uma aplicação NodeJS no back-end ou mesmo o deploy de uma aplicação ReactJS no front-end? Vem comigo!',
+//   duration: '38:23',
+// };
 
 const relatedVideos = [{
   title: 'Vanilla JS na pratica',
@@ -50,7 +51,19 @@ const relatedVideos = [{
 }];
 
 export default function Video() {
-  // const [video, setVideo] = useState({});
+  const { id } = useParams();
+  const [video, setVideo] = useState({});
+
+  const getVideo = async () => {
+    const response = await VideoService.get({ id });
+    if (response.ok) {
+      setVideo(response.data);
+    }
+  };
+
+  useEffect(() => {
+    getVideo();
+  }, []);
 
   return (
     <Container>
@@ -78,8 +91,8 @@ export default function Video() {
             </Grid>
             <Grid item lg={12} md={12} align="left">
               <ChannelInfo>
-                <ChannelLogo src={video.channel.uri} />
-                <ChannelName>{video.channel.name}</ChannelName>
+                <ChannelLogo src={video.channel ? video.channel.banner : null} />
+                <ChannelName>{video.channel ? video.channel.name : ''}</ChannelName>
                 <DateVideo>29 Jun</DateVideo>
               </ChannelInfo>
               <Description>{video.description}</Description>

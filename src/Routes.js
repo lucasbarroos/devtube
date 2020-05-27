@@ -14,7 +14,7 @@ export default function router() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/video">
+        <Route exact path="/video/:id">
           <Video />
         </Route>
       </Switch>

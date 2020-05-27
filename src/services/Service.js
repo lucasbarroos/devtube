@@ -21,6 +21,7 @@ class Service {
   }
 
   get({ params, id, includeInactive } = {}) {
+    console.log(id)
     return api
       .get(`${this.route}${id? `/${id}` : 's'}`)
       .then((response) => ({
