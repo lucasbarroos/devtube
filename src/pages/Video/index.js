@@ -46,7 +46,7 @@ export default function Video() {
   useEffect(() => {
     getVideo();
     getRelatedVideos();
-  }, [video]);
+  }, [id]);
 
   return (
     <Container>
