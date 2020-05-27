@@ -3,10 +3,13 @@ import { useParams } from 'react-router-dom';
 import { Animated } from 'react-animated-css';
 import { Grid } from '@material-ui/core';
 import ChannelService from '../../services/Channel/index';
+import VideoService from '../../services/Video/index';
+import VideoCard from '../../components/VideoCard/index';
 import {
   Container,
   FormBanner,
   Form,
+  FormVideos,
   Banner,
   Picture,
   Title,
@@ -16,6 +19,7 @@ import {
 export default function Channel() {
   const { id } = useParams();
   const [channel, setChannel] = useState({});
+  const [channelVideos, setChannelVideos] = useState([]);
   const [spinner, setSpinner] = useState(true);
 
   const getChannel = async () => {
@@ -26,9 +30,17 @@ export default function Channel() {
     }
   };
 
+  const getVideosByChannel = async () => {
+    const response = await VideoService.get({ params: { channel: id } });
+    if (response.ok) {
+      setChannelVideos(response.data);
+    }
+  };
+
   useEffect(() => {
     setSpinner(true);
     getChannel();
+    getVideosByChannel();
   }, [id]);
 
   return (
@@ -44,9 +56,15 @@ export default function Channel() {
             <Subscribeds>34k subscribers</Subscribeds>
           </Form>
         </FormBanner>
-        <Grid container>
-          <Grid item lg={3} />
-        </Grid>
+        <FormVideos>
+          <Grid container>
+            { channelVideos.map((video) => (
+              <Grid item lg={3} align="center">
+                <VideoCard video={video} />
+              </Grid>
+            ))}
+          </Grid>
+        </FormVideos>
       </Animated>
     </Container>
   );

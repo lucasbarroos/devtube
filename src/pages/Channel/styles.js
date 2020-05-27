@@ -18,6 +18,10 @@ export const Form = styled.div`
     flex-direction: column; 
 `;
 
+export const FormVideos = styled.div`
+    margin: 40px;
+`;
+
 export const Banner = styled.img`
     max-width: 100%;
     max-height: 240px;
