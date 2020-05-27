@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
+import { Animated } from 'react-animated-css';
 import { useParams, Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer/index';
 import VideoService from '../../services/Video/index';
@@ -28,11 +29,13 @@ export default function Video() {
   const { id } = useParams();
   const [video, setVideo] = useState({});
   const [relatedVideos, setRelatedVideos] = useState([]);
+  const [spinner, setSpinner] = useState(true);
 
   const getVideo = async () => {
     const response = await VideoService.get({ id });
     if (response.ok) {
       setVideo(response.data);
+      setSpinner(false);
     }
   };
 
@@ -44,6 +47,7 @@ export default function Video() {
   };
 
   useEffect(() => {
+    setSpinner(true);
     getVideo();
     getRelatedVideos();
   }, [id]);
@@ -54,7 +58,9 @@ export default function Video() {
         <Grid item lg={10} align="center">
           <Grid container>
             <Grid item lg={12} md={12} align="center">
-              <VideoPlayer videoId={video.video} style={{ borderRadius: 15 }} />
+              <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={!spinner}>
+                <VideoPlayer videoId={video.video} style={{ borderRadius: 15 }} />
+              </Animated>
             </Grid>
             <Grid item lg={12} md={12} align="left">
               <VideoInfo>
