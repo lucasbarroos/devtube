@@ -35,7 +35,7 @@ export default function Home() {
 
       <Grid container>
         <Grid item lg={12}>
-          <Title>Recomendado</Title>
+          <Title>Recommendations</Title>
         </Grid>
         {
           videos.map((el) => (

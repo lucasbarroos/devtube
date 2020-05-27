@@ -67,12 +67,12 @@ export default function Video() {
                 <Title>{video.title}</Title>
                 <VideoViews>120k views</VideoViews>
                 <RecommendButton>
-                  Recomendar
+                  Like this
                   {' '}
                   14k
                 </RecommendButton>
                 <SubscribeButton>
-                  Inscricao
+                  Subscribe
                   {' '}
                   32k
                 </SubscribeButton>

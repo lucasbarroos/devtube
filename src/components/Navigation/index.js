@@ -148,26 +148,26 @@ export default function Navigation() {
         <List>
           <ListItem button>
             <ListItemIcon style={DrawerIconStyle}><InboxIcon /></ListItemIcon>
-            <ListItemText primary="Inicio" />
+            <ListItemText primary="Home" />
           </ListItem>
           <ListItem button>
             <ListItemIcon style={DrawerIconStyle}><SubscriptionIcon /></ListItemIcon>
-            <ListItemText primary="Inscricoes" />
+            <ListItemText primary="Subscriptions" />
           </ListItem>
         </List>
         <Divider />
         <List>
           <ListItem button>
             <ListItemIcon style={DrawerIconStyle}><VideoLibraryIcon /></ListItemIcon>
-            <ListItemText primary="Biblioteca" />
+            <ListItemText primary="Library" />
           </ListItem>
           <ListItem button>
             <ListItemIcon style={DrawerIconStyle}><HistoricIcon /></ListItemIcon>
-            <ListItemText primary="Historico" />
+            <ListItemText primary="History" />
           </ListItem>
           <ListItem button>
             <ListItemIcon style={DrawerIconStyle}><ScheduleIcon /></ListItemIcon>
-            <ListItemText primary="Assistir mais tarde" />
+            <ListItemText primary="Watch later" />
           </ListItem>
         </List>
       </Drawer>
