@@ -29,6 +29,8 @@ export const ChannelInfo = styled.div`
     display: flex;
     flex-direction: row;
     margin: 10px;
+    color: white;
+    text-decoration: none !important;
 `;
 
 export const ChannelName = styled.div`

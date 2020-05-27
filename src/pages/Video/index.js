@@ -80,7 +80,9 @@ export default function Video() {
             </Grid>
             <Grid item lg={12} md={12} align="left">
               <ChannelInfo>
-                <ChannelLogo src={video.channel ? video.channel.banner : null} />
+                <Link to={`/channel/${video.channel ? video.channel._id : null}`} style={{ textDecoration: 'none' }}>
+                  <ChannelLogo src={video.channel ? video.channel.banner : null} />
+                </Link>
                 <ChannelName>{video.channel ? video.channel.name : ''}</ChannelName>
                 <DateVideo>29 Jun</DateVideo>
               </ChannelInfo>

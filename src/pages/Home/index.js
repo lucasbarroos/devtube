@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
+import VideoCard from '../../components/VideoCard/index';
 import {
   Container,
   Title,
-  VideoCard,
-  VideoBanner,
-  VideoDuration,
-  VideoChannel,
-  VideoTitle,
+
 } from './styles';
 import VideoService from '../../services/Video/index';
 
@@ -40,14 +36,7 @@ export default function Home() {
         {
           videos.map((el) => (
             <Grid item lg={3} align="center">
-              <VideoCard>
-                <Link to={`/video/${el._id}`}>
-                  <VideoDuration>{el.duration}</VideoDuration>
-                  <VideoBanner src={el.banner} />
-                </Link>
-                <VideoTitle>{el.title}</VideoTitle>
-                <VideoChannel>{el.channel.name}</VideoChannel>
-              </VideoCard>
+              <VideoCard video={el} />
             </Grid>
           ))
         }

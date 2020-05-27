@@ -146,10 +146,12 @@ export default function Navigation() {
         </div>
         <Divider />
         <List>
-          <ListItem button>
-            <ListItemIcon style={DrawerIconStyle}><InboxIcon /></ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
+          <Link to="/" style={{ color: '#fff', textDecoration: 'none' }}>
+            <ListItem button>
+              <ListItemIcon style={DrawerIconStyle}><InboxIcon /></ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+          </Link>
           <ListItem button>
             <ListItemIcon style={DrawerIconStyle}><SubscriptionIcon /></ListItemIcon>
             <ListItemText primary="Subscriptions" />
