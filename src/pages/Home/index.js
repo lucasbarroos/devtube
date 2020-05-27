@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
 import {
@@ -10,26 +10,26 @@ import {
   VideoChannel,
   VideoTitle,
 } from './styles';
+import VideoService from '../../services/Video/index';
 
 const ContainerStyle = {
   paddingTop: 20,
 };
 
-const videos = [{
-  title: 'Vanilla JS na pratica',
-  banner: 'https://i.ytimg.com/vi/-OqZzV__hts/maxresdefault.jpg',
-  video: 'https://www.youtube.com/watch?v=-OqZzV__hts',
-  channel: 'Red Stapler',
-  duration: '2:17',
-}, {
-  title: 'Introducao ao Nodejs',
-  banner: 'https://rocketseat.com.br/static/images/og/nodejs.png',
-  video: 'https://www.youtube.com/watch?v=-OqZzV__hts',
-  channel: 'Rocketseat',
-  duration: '38:23',
-}];
-
 export default function Home() {
+  const [videos, setVideos] = useState([]);
+
+  const getVideos = async () => {
+    const response = await VideoService.get();
+    if (response.ok) {
+      setVideos(response.data);
+    }
+  };
+
+  useEffect(() => {
+    getVideos();
+  }, []);
+
   return (
     <Container style={ContainerStyle}>
 
@@ -46,7 +46,7 @@ export default function Home() {
                   <VideoBanner src={el.banner} />
                 </Link>
                 <VideoTitle>{el.title}</VideoTitle>
-                <VideoChannel>{el.channel}</VideoChannel>
+                <VideoChannel>{el.channel.name}</VideoChannel>
               </VideoCard>
             </Grid>
           ))

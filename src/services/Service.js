@@ -22,11 +22,7 @@ class Service {
 
   get({ params, id, includeInactive } = {}) {
     return api
-      .get(`${this.route}/${id || ""}`, {
-        params: includeInactive
-          ? { ...params }
-          : { ...params, active: true },
-      })
+      .get(`${this.route}${id? `/${id}` : 's'}`)
       .then((response) => ({
         data: response.data.docs || response.data,
         total: response.data.total || response.data.length,

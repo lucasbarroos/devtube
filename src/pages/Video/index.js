@@ -50,7 +50,7 @@ const relatedVideos = [{
 }];
 
 export default function Video() {
-  const [video, setVideo] = useState({});
+  // const [video, setVideo] = useState({});
 
   return (
     <Container>
