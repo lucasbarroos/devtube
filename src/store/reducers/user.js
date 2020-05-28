@@ -3,6 +3,7 @@ const noUserImage = 'https://d1nhio0ox7pgb.cloudfront.net/_img/o_collection_png/
 const INITIAL_STATE = {
   autenticated: !!localUser,
   name: localUser ? localUser.name : '',
+  email: localUser ? localUser.email : '',
   profession: localUser ? localUser.profession : '',
   channels: localUser ? localUser.channels : [],
   picture: localUser ? localUser.picture : noUserImage,
@@ -11,10 +12,19 @@ const INITIAL_STATE = {
 export default function user(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'LOGIN': {
+      localStorage.setItem('user@devtube', JSON.stringify({
+        autenticated: true,
+        name: action.name,
+        email: action.email,
+        profession: action.profession,
+        channels: action.channels,
+        picture: action.picture,
+      }));
       return {
         ...state,
-        autenticated: action.autenticated,
+        autenticated: true,
         name: action.name,
+        email: action.email,
         profession: action.profession,
         channels: action.channels,
         picture: action.picture,

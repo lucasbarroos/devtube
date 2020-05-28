@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navigation = ({ modules, dispatch }) => {
+const Navigation = ({ user, dispatch }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -190,7 +190,7 @@ const Navigation = ({ modules, dispatch }) => {
             <VideoIcon style={IconStyle} />
             <AppIcons style={IconStyle} />
             <BellIcon style={IconStyle} />
-            { modules.autenticated
+            { user.autenticated
               ? <PanelPicture src={Picture} /> : 'Login'}
           </PanelContainer>
         </ItemForm>
@@ -199,4 +199,4 @@ const Navigation = ({ modules, dispatch }) => {
   );
 };
 
-export default connect((state) => ({ modules: state.user }))(Navigation);
+export default connect((state) => ({ user: state.user }))(Navigation);
