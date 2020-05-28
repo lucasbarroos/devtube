@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -113,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Navigation() {
+const Navigation = ({ modules, dispatch }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -189,10 +190,13 @@ export default function Navigation() {
             <VideoIcon style={IconStyle} />
             <AppIcons style={IconStyle} />
             <BellIcon style={IconStyle} />
-            <PanelPicture src={Picture} />
+            { modules.autenticated
+              ? <PanelPicture src={Picture} /> : 'Login'}
           </PanelContainer>
         </ItemForm>
       </Container>
     </div>
   );
-}
+};
+
+export default connect((state) => ({ modules: state.user }))(Navigation);
