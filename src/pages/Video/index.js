@@ -54,51 +54,50 @@ export default function Video() {
 
   return (
     <Container>
-      <Grid container>
-        <Grid item lg={10} align="center">
-          <Grid container>
-            <Grid item lg={12} md={12} align="center">
-              <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={!spinner}>
+      <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={!spinner}>
+        <Grid container>
+          <Grid item lg={10} align="center">
+            <Grid container>
+              <Grid item lg={12} md={12} align="center">
                 <VideoPlayer videoId={video.video} style={{ borderRadius: 15 }} />
-              </Animated>
-            </Grid>
-            <Grid item lg={12} md={12} align="left">
-              <VideoInfo>
-                <Title>{video.title}</Title>
-                <VideoViews>120k views</VideoViews>
-                <RecommendButton>
-                  Like this
-                  {' '}
-                  14k
-                </RecommendButton>
-                <SubscribeButton>
-                  Subscribe
-                  {' '}
-                  32k
-                </SubscribeButton>
-              </VideoInfo>
-            </Grid>
-            <Grid item lg={12} md={12} align="left">
-              <ChannelInfo>
-                <Link to={`/channel/${video.channel ? video.channel._id : null}`} style={{ textDecoration: 'none' }}>
-                  <ChannelLogo src={video.channel ? video.channel.banner : null} />
-                </Link>
-                <ChannelName>{video.channel ? video.channel.name : ''}</ChannelName>
-                <DateVideo>29 Jun</DateVideo>
-              </ChannelInfo>
-              <Description>{video.description}</Description>
+              </Grid>
+              <Grid item lg={12} md={12} align="left">
+                <VideoInfo>
+                  <Title>{video.title}</Title>
+                  <VideoViews>120k views</VideoViews>
+                  <RecommendButton>
+                    Like this
+                    {' '}
+                    14k
+                  </RecommendButton>
+                  <SubscribeButton>
+                    Subscribe
+                    {' '}
+                    32k
+                  </SubscribeButton>
+                </VideoInfo>
+              </Grid>
+              <Grid item lg={12} md={12} align="left">
+                <ChannelInfo>
+                  <Link to={`/channel/${video.channel ? video.channel._id : null}`} style={{ textDecoration: 'none' }}>
+                    <ChannelLogo src={video.channel ? video.channel.banner : null} />
+                  </Link>
+                  <ChannelName>{video.channel ? video.channel.name : ''}</ChannelName>
+                  <DateVideo>29 Jun</DateVideo>
+                </ChannelInfo>
+                <Description>{video.description}</Description>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        <Grid item lg={2}>
-          <Grid container>
-            <Grid item lg={12}>
-              <RelatedVideoName>
-                Recommended Videos
-              </RelatedVideoName>
-            </Grid>
-            <Grid item lg={12}>
-              {
+          <Grid item lg={2}>
+            <Grid container>
+              <Grid item lg={12}>
+                <RelatedVideoName>
+                  Recommended Videos
+                </RelatedVideoName>
+              </Grid>
+              <Grid item lg={12}>
+                {
                 relatedVideos.map((el) => (
                   <Link to={`/video/${el._id}`}>
                     <RelatedVideoCard>
@@ -112,10 +111,11 @@ export default function Video() {
                   </Link>
                 ))
               }
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
+      </Animated>
     </Container>
   );
 }

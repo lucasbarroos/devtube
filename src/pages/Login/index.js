@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+/* eslint-disable import/no-named-as-default-member */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -16,13 +18,14 @@ import {
 } from './styles';
 
 
-function LoginDispatcher(name, email, profession, channels) {
+function LoginDispatcher(name, email, profession, channels, picture) {
   return {
     type: 'LOGIN',
     name,
     email,
     profession,
     channels,
+    picture,
   };
 }
 
@@ -35,17 +38,17 @@ const Login = ({ dispatch }) => {
     const response = await UserService.login({ email: formEmail, password });
     if (response.ok) {
       const {
-        name, email, profession, channels,
+        name, email, profession, channels, picture,
       } = response.data;
-      dispatch((LoginDispatcher(name, email, profession, channels)));
-      history.go('/');
+      dispatch((LoginDispatcher(name, email, profession, channels, picture)));
+      history.push('/');
     }
   };
 
   return (
     <Container>
       <BlurPage />
-      <Form>
+      <Form autocomplete="off">
         <Grid container align="center">
           <Grid item lg={12} md={12} sm={12}>
             <Title>Devtube</Title>
@@ -53,6 +56,7 @@ const Login = ({ dispatch }) => {
           <Grid item lg={12} md={12} sm={12}>
             <InputForm>
               <TextInput
+                placeholder="Name"
                 type="email"
                 onChange={(e) => setFormEmail(e.target.value)}
               />
@@ -61,6 +65,7 @@ const Login = ({ dispatch }) => {
           <Grid item lg={12} md={12} sm={12}>
             <InputForm>
               <TextInput
+                placeholder="Password"
                 className="input-login"
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}

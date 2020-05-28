@@ -28,11 +28,12 @@ import {
   SearchIcon,
   PanelContainer,
   PanelPicture,
+  LoginButton,
 } from './styles';
 import LogoImage from '../../assets/images/logo.png';
 import SearchLogoImage from '../../assets/images/search.png';
 
-const Picture = 'https://scontent.fpnz4-1.fna.fbcdn.net/v/t1.0-9/67572121_2095729624065836_7227121578985652224_o.jpg?_nc_cat=105&_nc_sid=09cbfe&_nc_eui2=AeG9VAdNV1WHVgDjsq07M5ft8s6yEn2-NYTyzrISfb41hIxz8c_I9lH1i42TOPk8yS8DE_z1Ywq3QMeY9sOaSLdH&_nc_ohc=3FDCx0zrwEsAX8wcl5d&_nc_ht=scontent.fpnz4-1.fna&oh=ab0ff1016dd728acc2860dda027a6456&oe=5EF20C3E';
+const Picture = 'https://nemsmbr.org/wp-content/uploads/2019/03/no-image-icon-md-2.png';
 
 const IconStyle = {
   marginLeft: 25,
@@ -190,8 +191,15 @@ const Navigation = ({ user, dispatch }) => {
             <VideoIcon style={IconStyle} />
             <AppIcons style={IconStyle} />
             <BellIcon style={IconStyle} />
-            { user.autenticated
-              ? <PanelPicture src={Picture} /> : 'Login'}
+            {
+              user.autenticated
+                ? <PanelPicture src={user.picture ? user.picture : Picture} />
+                : (
+                  <Link to="/login">
+                    <LoginButton>Login</LoginButton>
+                  </Link>
+                )
+            }
           </PanelContainer>
         </ItemForm>
       </Container>

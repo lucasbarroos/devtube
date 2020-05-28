@@ -85,3 +85,19 @@ export const PanelItem = styled.div`
     width: 60px;
     height: 60px;
 `;
+
+export const LoginButton = styled.button`
+    margin-left: 20px;
+    height: 35px;
+    width: 150px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    a {
+        text-decoration: none;
+        color: white;
+    }
+`;
