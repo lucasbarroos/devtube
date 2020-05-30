@@ -31,12 +31,20 @@ const Profile = ({ user, dispatch }) => {
   };
 
   const handleSave = async () => {
-    const response = await UserService.put(user._id, { name: nameForm, profession: professionForm });
+    const response = await UserService
+      .put(user._id, { name: nameForm, profession: professionForm });
     if (response.ok) {
+      const {
+        email, channels, picture,
+      } = response.data;
       dispatch({
         type: 'UPDATE',
         name: nameForm,
         profession: professionForm,
+        _id: user._id,
+        email,
+        channels,
+        picture,
       });
       Toastr.addSuccess();
     } else {

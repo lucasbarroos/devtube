@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   email: localUser ? localUser.email : '',
   profession: localUser ? localUser.profession : '',
   channels: localUser ? localUser.channels : [],
-  picture: localUser ? localUser.picture : noUserImage,
+  picture: localUser ? localUser.picture : '',
 };
 
 export default function user(state = INITIAL_STATE, action) {
@@ -36,22 +36,22 @@ export default function user(state = INITIAL_STATE, action) {
     case 'UPDATE': {
       localStorage.setItem('user@devtube', JSON.stringify({
         autenticated: true,
-        _id: INITIAL_STATE._id,
+        _id: action._id,
         name: action.name,
-        email: INITIAL_STATE.email,
         profession: action.profession,
-        channels: INITIAL_STATE.channels,
-        picture: INITIAL_STATE.picture,
+        email: action.email,
+        channels: action.channels,
+        picture: action.picture,
       }));
       return {
         ...state,
         autenticated: true,
-        _id: INITIAL_STATE._id,
+        _id: action._id,
         name: action.name,
-        email: INITIAL_STATE.email,
         profession: action.profession,
-        channels: INITIAL_STATE.channels,
-        picture: INITIAL_STATE.picture,
+        email: action.email,
+        channels: action.channels,
+        picture: action.picture,
       };
     }
     default: {
