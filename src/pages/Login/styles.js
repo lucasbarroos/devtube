@@ -64,3 +64,15 @@ export const TextInput = styled.input`
     color: white;
     padding: 5px;
 `;
+
+export const RegisterButton = styled.span`
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 16px;
+    color: white;
+    a {
+        color: white;
+        text-decoration: none;
+    }
+`;

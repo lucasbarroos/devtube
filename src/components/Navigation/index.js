@@ -193,7 +193,11 @@ const Navigation = ({ user, dispatch }) => {
             <BellIcon style={IconStyle} />
             {
               user.autenticated
-                ? <PanelPicture src={user.picture ? user.picture : Picture} />
+                ? (
+                  <Link to="/profile">
+                    <PanelPicture src={user.picture ? user.picture : Picture} />
+                  </Link>
+                )
                 : (
                   <Link to="/login">
                     <LoginButton>Login</LoginButton>

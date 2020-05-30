@@ -13,6 +13,7 @@ import Video from './pages/Video/index';
 import Channel from './pages/Channel/index';
 import Login from './pages/Login/index';
 import Register from './pages/Register/index';
+import Profile from './pages/Profile/index';
 
 const store = createStore(reducer);
 
@@ -32,6 +33,10 @@ export default function router() {
           <Route exact path="/channel/:id">
             <Navigation />
             <Channel />
+          </Route>
+          <Route exact path="/profile">
+            <Navigation />
+            <Profile />
           </Route>
           <Route exact path="/login">
             <Login />

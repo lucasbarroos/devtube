@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Animated } from 'react-animated-css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import {
   Grid,
 } from '@material-ui/core';
@@ -16,13 +16,15 @@ import {
   InputForm,
   LoginButton,
   TextInput,
+  RegisterButton,
 } from './styles';
 import Toastify from '../../utils/Toastify/index';
 
 
-function LoginDispatcher(name, email, profession, channels, picture) {
+function LoginDispatcher(_id, name, email, profession, channels, picture) {
   return {
     type: 'LOGIN',
+    _id,
     name,
     email,
     profession,
@@ -40,11 +42,11 @@ const Login = ({ dispatch }) => {
     const response = await UserService.login({ email: formEmail, password });
     if (response.ok) {
       const {
-        name, email, profession, channels, picture,
+        _id, name, email, profession, channels, picture,
       } = response.data;
-      dispatch((LoginDispatcher(name, email, profession, channels, picture)));
+      dispatch((LoginDispatcher(_id, name, email, profession, channels, picture)));
       history.push('/');
-      Toastify.addSuccess('Welcome');
+      Toastify.addSuccess('Welcome to Devtube');
     } else {
       Toastify.addError();
     }
@@ -55,6 +57,9 @@ const Login = ({ dispatch }) => {
       <Container>
         <BlurPage />
         <Form autocomplete="off">
+          <RegisterButton>
+            <Link to="/register">Sign up</Link>
+          </RegisterButton>
           <Grid container align="center">
             <Grid item lg={12} md={12} sm={12}>
               <Title>Devtube</Title>
