@@ -2,6 +2,7 @@
 /* eslint-disable import/no-named-as-default-member */
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Animated } from 'react-animated-css';
 import { useHistory } from 'react-router-dom';
 import {
   Grid,
@@ -16,6 +17,7 @@ import {
   LoginButton,
   TextInput,
 } from './styles';
+import Toastify from '../../utils/Toastify/index';
 
 
 function LoginDispatcher(name, email, profession, channels, picture) {
@@ -42,44 +44,49 @@ const Login = ({ dispatch }) => {
       } = response.data;
       dispatch((LoginDispatcher(name, email, profession, channels, picture)));
       history.push('/');
+      Toastify.addSuccess('Welcome');
+    } else {
+      Toastify.addError();
     }
   };
 
   return (
-    <Container>
-      <BlurPage />
-      <Form autocomplete="off">
-        <Grid container align="center">
-          <Grid item lg={12} md={12} sm={12}>
-            <Title>Devtube</Title>
+    <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={2000} animationOutDuration={1000}>
+      <Container>
+        <BlurPage />
+        <Form autocomplete="off">
+          <Grid container align="center">
+            <Grid item lg={12} md={12} sm={12}>
+              <Title>Devtube</Title>
+            </Grid>
+            <Grid item lg={12} md={12} sm={12}>
+              <InputForm>
+                <TextInput
+                  placeholder="Name"
+                  type="email"
+                  onChange={(e) => setFormEmail(e.target.value)}
+                />
+              </InputForm>
+            </Grid>
+            <Grid item lg={12} md={12} sm={12}>
+              <InputForm>
+                <TextInput
+                  placeholder="Password"
+                  className="input-login"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </InputForm>
+            </Grid>
+            <Grid item lg={12} md={12} sm={12}>
+              <InputForm>
+                <LoginButton onClick={handleLogin}>Login</LoginButton>
+              </InputForm>
+            </Grid>
           </Grid>
-          <Grid item lg={12} md={12} sm={12}>
-            <InputForm>
-              <TextInput
-                placeholder="Name"
-                type="email"
-                onChange={(e) => setFormEmail(e.target.value)}
-              />
-            </InputForm>
-          </Grid>
-          <Grid item lg={12} md={12} sm={12}>
-            <InputForm>
-              <TextInput
-                placeholder="Password"
-                className="input-login"
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </InputForm>
-          </Grid>
-          <Grid item lg={12} md={12} sm={12}>
-            <InputForm>
-              <LoginButton onClick={handleLogin}>Login</LoginButton>
-            </InputForm>
-          </Grid>
-        </Grid>
-      </Form>
-    </Container>
+        </Form>
+      </Container>
+    </Animated>
   );
 };
 
