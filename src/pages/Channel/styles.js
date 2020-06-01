@@ -5,6 +5,7 @@ export const Container = styled.div`
 `;
 
 export const FormBanner = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,4 +44,17 @@ export const Title = styled.div`
 export const Subscribeds = styled.div`
     font-size: 20px;
     color: white;
+`;
+
+export const SubscribeButton = styled.button`
+    height: 30px;
+    width: 200px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: ${(props) => (props.active ? 'white' : 'red')};
+    font-size: 14px;
+    color: ${(props) => (props.active ? 'black' : 'white')};
+    border: 1px solid ${(props) => (props.active ? 'white' : 'red')};
+    padding: 5px;    
+    cursor: pointer;  
 `;

@@ -76,7 +76,7 @@ const Video = ({ user, dispatch }) => {
 
   const checkSubscribedChannel = async () => {
     if (user.autenticated) {
-      const response = await ChannelService.checkSubscribed(id, user._id);
+      const response = await ChannelService.checkSubscribedByVideo(id, user._id);
       if (response.ok) {
         setSubscribed(response.data.subscribed);
       } else {
@@ -151,7 +151,7 @@ const Video = ({ user, dispatch }) => {
                     {video.video_analytics ? video.video_analytics.recommended : 0}
                   </RecommendButton>
                   <SubscribeButton onClick={handleSubscribe} active={subscribed}>
-                    Subscribe
+                    {subscribed ? 'Subscribed' : 'Subscribe'}
                     {' '}
                     {subs}
                   </SubscribeButton>
