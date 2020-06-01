@@ -45,6 +45,13 @@ const Channel = ({ user, dispatch }) => {
     }
   };
 
+  const getSubs = async () => {
+    const response = await ChannelService.getSubscribers(id);
+    if (response.ok) {
+      setSubs(response.data.quant);
+    }
+  };
+
   const getVideosByChannel = async () => {
     const response = await VideoService.get({ params: { channel: id } });
     if (response.ok) {
@@ -86,6 +93,7 @@ const Channel = ({ user, dispatch }) => {
     getChannel();
     getVideosByChannel();
     checkSubscribedChannel();
+    getSubs();
   }, [id]);
 
   return (
@@ -99,7 +107,11 @@ const Channel = ({ user, dispatch }) => {
             <Title>
               {channel.name}
             </Title>
-            <Subscribeds>34k subscribers</Subscribeds>
+            <Subscribeds>
+              {subs}
+              {' '}
+              subscribers
+            </Subscribeds>
           </Form>
         </FormBanner>
         <FormVideos>

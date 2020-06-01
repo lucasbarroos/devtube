@@ -6,6 +6,18 @@ class Channel extends Service {
     super({ route: '/channel' });
   }
 
+  getSubscribers(id) {
+    return Api
+      .get(`/subscribers_quant/${id}`)
+      .then((response) => ({
+        data: response.data,
+        ok: true,
+      })).catch((error) => ({
+        ok: false,
+        message: error,
+      }));
+  }
+
   subscribe(id, userId) {
     return Api
       .patch(`/subscribe/${id}/${userId}`)
