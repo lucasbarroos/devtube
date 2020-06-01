@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const VideoForm = styled.div`
     position: relative;
     cursor: pointer;
+    margin-bottom: 20px;
 `;
 
 export const VideoBanner = styled.img`
