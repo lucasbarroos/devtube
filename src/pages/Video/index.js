@@ -86,6 +86,7 @@ const Video = ({ user, dispatch }) => {
   };
 
   useEffect(() => {
+    window.scroll(0, 0);
     setSpinner(true);
     getVideo();
     getRelatedVideos();
