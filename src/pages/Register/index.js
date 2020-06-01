@@ -48,7 +48,7 @@ const Register = ({ dispatch }) => {
       const {
         _id, name, email, profession, channels, picture,
       } = response.data;
-      dispatch((RegisterDispatcher(name, email, profession, channels, picture)));
+      dispatch((RegisterDispatcher(_id, name, email, profession, channels, picture)));
       history.push('/');
       Toastify.addSuccess('Welcome to Devtube');
     } else {
