@@ -181,7 +181,7 @@ const Video = ({ user, dispatch }) => {
                 <Grid container>
                   {
                     relatedVideos.map((el) => (
-                      <Grid item lg={12} md={4} sm={6} xs={12}>
+                      <Grid item lg={12} md={4} sm={6} xs={12} key={el._id}>
                         <Link to={`/video/${el._id}`}>
                           <RelatedVideoCard>
                             <RelatedVideoBanner src={el.banner} />

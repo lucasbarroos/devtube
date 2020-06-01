@@ -35,7 +35,7 @@ export default function Home() {
         </Grid>
         {
           videos.map((el) => (
-            <Grid item lg={3} md={6} sm={12} xs={12} align="center">
+            <Grid key={el._id} item lg={3} md={6} sm={12} xs={12} align="center">
               <VideoCard video={el} />
             </Grid>
           ))
