@@ -12,7 +12,7 @@ export const LogoContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px 50px 10px 0px;
+    margin: 10px 50px 10px 20px;
     width: 10%;
 `;
 

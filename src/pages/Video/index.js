@@ -169,32 +169,36 @@ const Video = ({ user, dispatch }) => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item lg={2}>
+          <Grid item lg={2} md={12} sm={12} xs={12}>
             <Grid container>
-              <Grid item lg={12}>
+              <Grid item lg={12} md={12} sm={12} xs={12}>
                 <RelatedVideoName>
                   Recommended Videos
                 </RelatedVideoName>
               </Grid>
-              <Grid item lg={12}>
-                {
-                relatedVideos.map((el) => (
-                  <Link to={`/video/${el._id}`}>
-                    <RelatedVideoCard>
-                      <RelatedVideoBanner src={el.banner} />
-                      <RelatedVideoTitle>{el.title}</RelatedVideoTitle>
-                      <RelatedVideoInfo>
-                        <RelatedVideoChannel>{el.channel ? el.channel.name : ''}</RelatedVideoChannel>
-                        <RelatedVideoViews>
-                          {el.video_analytics ? el.video_analytics.views : 0}
-                          {' '}
-                          views
-                        </RelatedVideoViews>
-                      </RelatedVideoInfo>
-                    </RelatedVideoCard>
-                  </Link>
-                ))
-              }
+              <Grid item lg={12} md={12} sm={12} xs={12}>
+                <Grid container>
+                  {
+                    relatedVideos.map((el) => (
+                      <Grid item lg={12} md={4} sm={6} xs={12}>
+                        <Link to={`/video/${el._id}`}>
+                          <RelatedVideoCard>
+                            <RelatedVideoBanner src={el.banner} />
+                            <RelatedVideoTitle>{el.title}</RelatedVideoTitle>
+                            <RelatedVideoInfo>
+                              <RelatedVideoChannel>{el.channel ? el.channel.name : ''}</RelatedVideoChannel>
+                              <RelatedVideoViews>
+                                {el.video_analytics ? el.video_analytics.views : 0}
+                                {' '}
+                                views
+                              </RelatedVideoViews>
+                            </RelatedVideoInfo>
+                          </RelatedVideoCard>
+                        </Link>
+                      </Grid>
+                    ))
+                  }
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

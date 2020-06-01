@@ -30,12 +30,12 @@ export default function Home() {
     <Container style={ContainerStyle}>
 
       <Grid container>
-        <Grid item lg={12}>
+        <Grid item lg={12} md={12}>
           <Title>Recommendations</Title>
         </Grid>
         {
           videos.map((el) => (
-            <Grid item lg={3} align="center">
+            <Grid item lg={3} md={6} sm={12} xs={12} align="center">
               <VideoCard video={el} />
             </Grid>
           ))

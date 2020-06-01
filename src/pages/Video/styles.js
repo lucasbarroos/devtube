@@ -98,6 +98,12 @@ export const RelatedVideoName = styled.div`
     font-size: 1.4rem;
     margin-left: 20px;
     margin-bottom: 20px;
+    margin-top: 40px;
+    @media only screen and (max-width: 1116px) {
+        margin-top: 40px;
+        font-size: 1.2rem;
+        text-align: center;
+    }
 `;
 
 export const RelatedVideoCard = styled.div`
@@ -111,7 +117,7 @@ export const RelatedVideoCard = styled.div`
 export const RelatedVideoBanner = styled.img`
     width: 100%;
     max-width: 360px;
-    max-height: 240px;
+    height: 200px;
     border-radius: 10px;
 `;
 
@@ -119,6 +125,9 @@ export const RelatedVideoTitle = styled.div`
     font-size: 1rem;
     position: absolute;
     color: white;
+    @media only screen and (max-width: 1116px) {
+        font-size: 12px;
+    }
 `;
 
 export const RelatedVideoInfo = styled.div`
@@ -128,6 +137,9 @@ export const RelatedVideoInfo = styled.div`
     position: absolute;
     color: white;
     bottom: -40px;
+    @media only screen and (max-width: 1116px) {
+        font-size: 10px;
+    }
 `;
 
 export const RelatedVideoChannel = styled.div`        
