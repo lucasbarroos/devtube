@@ -5,7 +5,7 @@ import { Animated } from 'react-animated-css';
 import { useParams, Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer/index';
 import VideoService from '../../services/Video/index';
-import UserService from '../../services/User/index';
+import ChannelService from '../../services/Channel/index';
 import {
   Container,
   Title,
@@ -28,10 +28,12 @@ import {
 } from './styles';
 import Toast from '../../utils/Toastify/index';
 
-const Video = ({ user, dispatch }) => {
+const Video = ({ user }) => {
   const { id } = useParams();
   const [video, setVideo] = useState({});
+  const [subs, setSubs] = useState(0);
   const [recommendedVideo, setRecommendedVideo] = useState(false);
+  const [subscribed, setSubscribed] = useState(false);
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [spinner, setSpinner] = useState(true);
 
@@ -39,6 +41,7 @@ const Video = ({ user, dispatch }) => {
     const response = await VideoService.get({ id });
     if (response.ok) {
       setVideo(response.data);
+      setSubs(response.subs);
       setSpinner(false);
     }
   };
@@ -61,11 +64,23 @@ const Video = ({ user, dispatch }) => {
     }
   };
 
+  const checkSubscribedChannel = async () => {
+    if (user.autenticated) {
+      const response = await ChannelService.checkSubscribed(id, user._id);
+      if (response.ok) {
+        setSubscribed(response.data.subscribed);
+      } else {
+        setSubscribed(false);
+      }
+    }
+  };
+
   useEffect(() => {
     setSpinner(true);
     getVideo();
     getRelatedVideos();
     checkRecommendVideo();
+    checkSubscribedChannel();
   }, [id]);
 
   const handleRecommend = async () => {
@@ -81,6 +96,22 @@ const Video = ({ user, dispatch }) => {
         }
       } else {
         Toast.addSuccess('You have recommended this video!');
+      }
+    }
+  };
+
+  const handleSubscribe = async () => {
+    if (user.autenticated) {
+      if (!subscribed) {
+        const response = await ChannelService.subscribeByVideo(id, user._id);
+        if (response.ok) {
+          setSubscribed(true);
+          Toast.addSuccess();
+        } else {
+          setSubscribed(false);
+        }
+      } else {
+        Toast.addSuccess('You have subscribed this channel!');
       }
     }
   };
@@ -103,14 +134,14 @@ const Video = ({ user, dispatch }) => {
                     views
                   </VideoViews>
                   <RecommendButton onClick={handleRecommend} active={recommendedVideo}>
-                    Like this
+                    {recommendedVideo ? 'You liked' : 'Like this'}
                     {' '}
                     {video.video_analytics ? video.video_analytics.recommended : 0}
                   </RecommendButton>
-                  <SubscribeButton>
+                  <SubscribeButton onClick={handleSubscribe} active={subscribed}>
                     Subscribe
                     {' '}
-                    32k
+                    {subs}
                   </SubscribeButton>
                 </VideoInfo>
               </Grid>
