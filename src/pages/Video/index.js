@@ -28,7 +28,7 @@ import {
 } from './styles';
 import Toast from '../../utils/Toastify/index';
 
-const Video = ({ user }) => {
+const Video = ({ user, dispatch }) => {
   const { id } = useParams();
   const [video, setVideo] = useState({});
   const [subs, setSubs] = useState(0);
@@ -36,6 +36,16 @@ const Video = ({ user }) => {
   const [subscribed, setSubscribed] = useState(false);
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [spinner, setSpinner] = useState(true);
+
+  const subscribeDispatch = {
+    type: 'SUBSCRIBE',
+    _id: user._id,
+    picture: user.picture,
+    name: user.name,
+    email: user.email,
+    profession: user.profession,
+    channels: [...user.channels, video.channel ? video.channel._id : null],
+  };
 
   const getVideo = async () => {
     const response = await VideoService.get({ id });
@@ -107,6 +117,8 @@ const Video = ({ user }) => {
         if (response.ok) {
           setSubscribed(true);
           Toast.addSuccess();
+          dispatch(subscribeDispatch);
+          setSubs(subs + 1);
         } else {
           setSubscribed(false);
         }
