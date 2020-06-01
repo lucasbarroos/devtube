@@ -63,9 +63,9 @@ export const RecommendButton = styled.button`
     height: 30px;
     width: 200px;
     border-radius: 5px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: ${(props) => (props.active ? 'white' : 'rgba(0, 0, 0, 0)')};
     font-size: 14px;
-    color: white;
+    color: ${(props) => (props.active ? 'black' : 'white')};
     border: 1px solid white;
     padding: 5px;    
     cursor: pointer;

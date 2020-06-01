@@ -55,6 +55,23 @@ class Service {
           error.response?.data?.message || error.message || "Route not found",
       }));
   }
+
+  patch(id, data) {
+    return api
+      .patch(`${this.route}/${id}`, data)
+      .then((response) => {
+        return {
+          data: response.data.docs || response.data,
+          ok: true,
+          status: response.data.status,
+        };
+      })
+      .catch((error) => ({
+        ok: false,
+        message:
+          error.response?.data?.message || error.message || "Route not found",
+      }));
+  }
 }
 
 export default Service;

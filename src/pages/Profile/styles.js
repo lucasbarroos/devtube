@@ -8,7 +8,7 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.div`
-    height: 500px;
+    height: 400px;
     width: 400px;
     background-color: white;
     border-radius: 5px;

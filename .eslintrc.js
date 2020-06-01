@@ -26,6 +26,9 @@ module.exports = {
     "import/prefer-default-export": 0,
     "no-underscore-dangle": 0,
     "react-hooks/exhaustive-deps": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "class-methods-use-this": 0,
+    "import/no-named-as-default-member": 0,
+    "import/no-named-as-default": 0
   },
 };

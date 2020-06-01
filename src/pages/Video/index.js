@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 import { Grid } from '@material-ui/core';
 import { Animated } from 'react-animated-css';
 import { useParams, Link } from 'react-router-dom';
 import VideoPlayer from '../../components/VideoPlayer/index';
 import VideoService from '../../services/Video/index';
+import UserService from '../../services/User/index';
 import {
   Container,
   Title,
@@ -24,10 +26,12 @@ import {
   RelatedVideoViews,
   RelatedVideoChannel,
 } from './styles';
+import Toast from '../../utils/Toastify/index';
 
-export default function Video() {
+const Video = ({ user, dispatch }) => {
   const { id } = useParams();
   const [video, setVideo] = useState({});
+  const [recommendedVideo, setRecommendedVideo] = useState(false);
   const [relatedVideos, setRelatedVideos] = useState([]);
   const [spinner, setSpinner] = useState(true);
 
@@ -46,11 +50,40 @@ export default function Video() {
     }
   };
 
+  const checkRecommendVideo = async () => {
+    if (user.autenticated) {
+      const response = await VideoService.checkRecommended(id, user._id);
+      if (response.ok) {
+        setRecommendedVideo(true);
+      } else {
+        setRecommendedVideo(false);
+      }
+    }
+  };
+
   useEffect(() => {
     setSpinner(true);
     getVideo();
     getRelatedVideos();
+    checkRecommendVideo();
   }, [id]);
+
+  const handleRecommend = async () => {
+    if (user.autenticated) {
+      if (!recommendedVideo) {
+        const response = await VideoService.recommend(id, user._id);
+        if (response.ok) {
+          setVideo(response.data);
+          setRecommendedVideo(true);
+          Toast.addSuccess();
+        } else {
+          Toast.addError();
+        }
+      } else {
+        Toast.addSuccess('You have recommended this video!');
+      }
+    }
+  };
 
   return (
     <Container>
@@ -64,11 +97,15 @@ export default function Video() {
               <Grid item lg={12} md={12} align="left">
                 <VideoInfo>
                   <Title>{video.title}</Title>
-                  <VideoViews>120k views</VideoViews>
-                  <RecommendButton>
+                  <VideoViews>
+                    {video.video_analytics ? video.video_analytics.views : 0}
+                    {' '}
+                    views
+                  </VideoViews>
+                  <RecommendButton onClick={handleRecommend} active={recommendedVideo}>
                     Like this
                     {' '}
-                    14k
+                    {video.video_analytics ? video.video_analytics.recommended : 0}
                   </RecommendButton>
                   <SubscribeButton>
                     Subscribe
@@ -105,7 +142,11 @@ export default function Video() {
                       <RelatedVideoTitle>{el.title}</RelatedVideoTitle>
                       <RelatedVideoInfo>
                         <RelatedVideoChannel>{el.channel ? el.channel.name : ''}</RelatedVideoChannel>
-                        <RelatedVideoViews>22k views</RelatedVideoViews>
+                        <RelatedVideoViews>
+                          {el.video_analytics ? el.video_analytics.views : 0}
+                          {' '}
+                          views
+                        </RelatedVideoViews>
                       </RelatedVideoInfo>
                     </RelatedVideoCard>
                   </Link>
@@ -118,4 +159,6 @@ export default function Video() {
       </Animated>
     </Container>
   );
-}
+};
+
+export default connect((state) => ({ user: state.user }))(Video);
