@@ -98,7 +98,7 @@ const Channel = ({ user, dispatch }) => {
 
   return (
     <Container>
-      <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={!spinner}>
+      <Animated animationIn="fadeIn" animationOut="fadeOut" animationInDuration={1000} animationOutDuration={1000} isVisible={!spinner} style={{ padding: 0 }}>
         <FormBanner>
           <Banner src={channel.wallpaper} />
           <Form>
@@ -117,7 +117,7 @@ const Channel = ({ user, dispatch }) => {
         <FormVideos>
           <Grid container>
             { channelVideos.map((video) => (
-              <Grid item lg={4} md={6} align="center">
+              <Grid item lg={4} md={6} sm={12} xs={12} align="center">
                 <VideoCard video={video} />
               </Grid>
             ))}

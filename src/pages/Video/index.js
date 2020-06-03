@@ -135,7 +135,7 @@ const Video = ({ user, dispatch }) => {
         <Grid container>
           <Grid item lg={10} align="center">
             <Grid container>
-              <Grid item lg={12} md={12} align="center">
+              <Grid item lg={12} md={12} align="center" id="video_player_container">
                 <VideoPlayer videoId={video.video} style={{ borderRadius: 15 }} />
               </Grid>
               <Grid item lg={12} md={12} align="left">

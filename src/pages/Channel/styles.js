@@ -21,6 +21,9 @@ export const Form = styled.div`
 
 export const FormVideos = styled.div`
     margin: 40px;
+    @media only screen and (max-width: 900px) {
+        margin: 0px;
+    }    
 `;
 
 export const Banner = styled.img`
