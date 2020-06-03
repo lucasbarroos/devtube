@@ -1,4 +1,4 @@
-# App Visual 01
+# Devtube
 
 A minimalist version to the Youtube page. Called Devtube, I used my own API to provide programming tutorial videos for the dashboard. It's just a demo, I hope you enjoy.
 
