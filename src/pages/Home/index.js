@@ -7,18 +7,21 @@ import {
 
 } from './styles';
 import VideoService from '../../services/Video/index';
+import Spinner from '../../components/Spinner/index';
 
 const ContainerStyle = {
   paddingTop: 20,
 };
 
 export default function Home() {
+  const [spinner, setSpinner] = useState(true);
   const [videos, setVideos] = useState([]);
 
   const getVideos = async () => {
     const response = await VideoService.get();
     if (response.ok) {
       setVideos(response.data);
+      setSpinner(false);
     }
   };
 
@@ -28,19 +31,22 @@ export default function Home() {
 
   return (
     <Container style={ContainerStyle}>
-
-      <Grid container>
-        <Grid item lg={12} md={12}>
-          <Title>Recommendations</Title>
-        </Grid>
-        {
-          videos.map((el) => (
-            <Grid key={el._id} item lg={3} md={6} sm={12} xs={12} align="center">
-              <VideoCard video={el} />
+      {spinner
+        ? (<Spinner />)
+        : (
+          <Grid container>
+            <Grid item lg={12} md={12}>
+              <Title>Recommendations</Title>
             </Grid>
-          ))
-        }
-      </Grid>
+            {
+            videos.map((el) => (
+              <Grid key={el._id} item lg={3} md={6} sm={12} xs={12} align="center">
+                <VideoCard video={el} />
+              </Grid>
+            ))
+          }
+          </Grid>
+        )}
     </Container>
   );
 }

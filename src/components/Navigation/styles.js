@@ -14,17 +14,26 @@ export const LogoContainer = styled.div`
     align-items: center;
     margin: 10px 50px 10px 20px;
     width: 10%;
+    @media only screen and (max-width: 1116px) {
+        width: 100%;
+    }
 `;
 
 export const Logo = styled.img`
     cursor: pointer;
     height: 40px;
+    @media only screen and (max-width: 1116px) {
+        text-align: center;
+    }
 `;
 
 export const SearchContainer = styled.div`
     position: relative;
     margin: 15px 20px 0px 20px;
     width: 40%;
+    @media only screen and (max-width: 1116px) {
+        display: none;
+    }
 `;
 
 export const Search = styled.input`
@@ -70,6 +79,9 @@ export const PanelContainer = styled.div`
     font-size: 1.2rem;
     color: white;
     padding-top: 20px;
+    @media only screen and (max-width: 1116px) {
+        display: none;
+    }
 `;
 
 export const PanelPicture = styled.img`
