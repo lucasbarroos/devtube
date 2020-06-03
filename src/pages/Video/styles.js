@@ -9,7 +9,7 @@ export const Title = styled.div`
     font-size: 1.4rem;
     color: white;
     font-weight: 200;
-    width: 60%;
+    width: 50%;
     @media only screen and (max-width: 1116px) {
         font-size: 18px;
         width: 100%;
@@ -145,6 +145,9 @@ export const RelatedVideoCard = styled.div`
     margin-left: 20px;
     margin-bottom: 80px;
     cursor: pointer;
+    @media only screen and (max-width: 1116px) {
+        margin-bottom: 20px;
+    }
 `;
 
 export const RelatedVideoBanner = styled.img`
@@ -156,10 +159,12 @@ export const RelatedVideoBanner = styled.img`
 
 export const RelatedVideoTitle = styled.div`
     font-size: 1rem;
-    position: absolute;
     color: white;
+    text-decoration-line: none !important;
     @media only screen and (max-width: 1116px) {
-        font-size: 12px;
+        text-align: center;
+        position: relative;
+        font-size: 18px;
     }
 `;
 
@@ -167,22 +172,31 @@ export const RelatedVideoInfo = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    position: absolute;
     color: white;
     bottom: -40px;
-    width: 60%;
     @media only screen and (max-width: 1116px) {
+        bottom: auto;
+        display: block;
         font-size: 10px;
+        position: relative;
     }
 `;
 
 export const RelatedVideoChannel = styled.div`        
     font-size: 12px;
-    width: 50%;
+    width: 60%;
+    @media only screen and (max-width: 1116px) {
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 export const RelatedVideoViews = styled.div`
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
     text-align: right;
     font-size: 12px;
     width: 50%;
+    font-weight: bold;
 `;

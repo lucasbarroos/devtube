@@ -9,7 +9,7 @@ export default function VideoPlayer({ videoId }) {
   const [width, setWidth] = useState('100%');
 
   useEffect(() => {
-    setResponsible(clientWidth < 1333);
+    setResponsible(clientWidth < 1116);
     setPortrait(false);
     setWidth(clientWidth);
   }, [clientHeight]);

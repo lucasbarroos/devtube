@@ -41,12 +41,23 @@ export const Picture = styled.img`
 export const Title = styled.div`
     margin-top: 10px;
     font-size: 48px;
-    color: white;
+    color: white;   
+    @media only screen and (max-width: 900px) {        
+        font-size: 26px;
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 export const Subscribeds = styled.div`
     font-size: 20px;
     color: white;
+    @media only screen and (max-width: 900px) {        
+        font-size: 14px;
+        margin-bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 export const SubscribeButton = styled.button`
