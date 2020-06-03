@@ -10,4 +10,10 @@ export const Title = styled.span`
     padding: 30px;
     font-size: 2rem;
     color: white;
+    @media only screen and (max-width: 900px) {
+        width: 100%;
+        margin-bottom: 40px;
+        font-size: 24px;
+        text-align: center;
+    }
 `;

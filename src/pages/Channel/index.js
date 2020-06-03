@@ -117,7 +117,7 @@ const Channel = ({ user, dispatch }) => {
         <FormVideos>
           <Grid container>
             { channelVideos.map((video) => (
-              <Grid item lg={3} align="center">
+              <Grid item lg={4} md={6} align="center">
                 <VideoCard video={video} />
               </Grid>
             ))}
