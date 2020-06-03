@@ -20,7 +20,7 @@ export const VideoBanner = styled.img`
 `;
 
 export const VideoTitle = styled.div`
-    padding-left: 25px;
+    padding-left: 50px;
     text-align: left;
     color: white;
     font-size: 1.3rem;
@@ -34,7 +34,7 @@ export const VideoTitle = styled.div`
 `;
 
 export const VideoInfo = styled.div`
-    padding-left: 25px;
+    padding-left: 50px;
     display: flex;
     flex-direction: row;
     @media only screen and (max-width: 900px) {
@@ -56,7 +56,7 @@ export const VideoDuration = styled.div`
 `;
 
 export const VideoChannel = styled.div`
-    padding-left: 25px;
+    padding-left: 50px;
     text-align: left;
     color: rgba(255, 255, 255, 0.6);
     font-size: 14px;
