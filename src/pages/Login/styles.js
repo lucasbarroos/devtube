@@ -28,7 +28,10 @@ export const Form = styled.div`
     color: white;
     border-radius: 10px;
     height: 500px;
-    width: 400px;
+    width: 400px;    
+    @media only screen and (max-width: 900px) {
+        width: 300px;
+    }
 `;
 
 export const Title = styled.div`

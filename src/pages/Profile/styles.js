@@ -12,6 +12,9 @@ export const Form = styled.div`
     width: 400px;
     background-color: white;
     border-radius: 5px;
+    @media only screen and (max-width: 900px) {
+        width: 300px;
+    }
 `;
 
 export const Picture = styled.img`

@@ -61,10 +61,10 @@ const Login = ({ dispatch }) => {
             <Link to="/register">Sign up</Link>
           </RegisterButton>
           <Grid container align="center">
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <Title>Devtube</Title>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <TextInput
                   placeholder="Name"
@@ -73,7 +73,7 @@ const Login = ({ dispatch }) => {
                 />
               </InputForm>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <TextInput
                   placeholder="Password"
@@ -83,7 +83,7 @@ const Login = ({ dispatch }) => {
                 />
               </InputForm>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <LoginButton onClick={handleLogin}>Login</LoginButton>
               </InputForm>

@@ -65,10 +65,10 @@ const Register = ({ dispatch }) => {
             <Link to="/login">Sign in</Link>
           </RegisterButton>
           <Grid container align="center">
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <Title>Devtube</Title>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <TextInput
                   placeholder="Name"
@@ -77,7 +77,7 @@ const Register = ({ dispatch }) => {
                 />
               </InputForm>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <TextInput
                   placeholder="Profession"
@@ -86,7 +86,7 @@ const Register = ({ dispatch }) => {
                 />
               </InputForm>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <TextInput
                   placeholder="Email"
@@ -95,7 +95,7 @@ const Register = ({ dispatch }) => {
                 />
               </InputForm>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <TextInput
                   placeholder="Password"
@@ -105,7 +105,7 @@ const Register = ({ dispatch }) => {
                 />
               </InputForm>
             </Grid>
-            <Grid item lg={12} md={12} sm={12}>
+            <Grid item lg={12} md={12} sm={12} xs={12}>
               <InputForm>
                 <LoginButton onClick={handleLogin}>Register</LoginButton>
               </InputForm>
