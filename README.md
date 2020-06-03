@@ -10,8 +10,8 @@ A minimalist version to the Youtube page. Called Devtube, I used my own API to p
 
 ![Home Page](https://imgur.com/60aMOrf.jpeg)
 ![Video Page](https://imgur.com/ZXbuD3b.jpeg)
-![Channel Page](https://imgur.com/0IMeBlS.jpeg))
-![User Page](https://imgur.com/imqQEAK.jpeg))
+![Channel Page](https://imgur.com/0IMeBlS.jpeg)
+![User Page](https://imgur.com/imqQEAK.jpeg)
 ![Login Page](https://imgur.com/E3EoL1x.jpeg)
 
 ## Installation
