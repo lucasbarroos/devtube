@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
+import { Animated } from 'react-animated-css';
 import VideoCard from '../../components/VideoCard/index';
 import {
   Container,
@@ -31,9 +32,11 @@ export default function Home() {
 
   return (
     <Container style={ContainerStyle}>
-      {spinner
-        ? (<Spinner />)
-        : (
+      <Animated animationIn="fadeInLeft" animationOut="fadeOut" animationInDuration={500} animationOutDuration={1000} isVisible={spinner}>
+        {spinner ? <Spinner /> : null}
+      </Animated>
+      <Animated animationIn="fadeInLeft" animationOut="fadeOut" animationInDuration={500} animationOutDuration={1000} isVisible={!spinner}>
+        {!spinner ? (
           <Grid container>
             <Grid item lg={12} md={12}>
               <Title>Recommendations</Title>
@@ -46,7 +49,8 @@ export default function Home() {
             ))
           }
           </Grid>
-        )}
+        ) : null}
+      </Animated>
     </Container>
   );
 }
