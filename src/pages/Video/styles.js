@@ -9,6 +9,11 @@ export const Title = styled.div`
     font-size: 1.4rem;
     color: white;
     font-weight: 200;
+    width: 60%;
+    @media only screen and (max-width: 1116px) {
+        font-size: 18px;
+        width: 100%;
+    }
 `;
 
 export const VideoInfo = styled.div`
@@ -22,6 +27,9 @@ export const VideoViews = styled.div`
     font-size: 1rem;
     color: ghostwhite;
     padding-top: 10px;
+    @media only screen and (max-width: 1116px) {
+        font-size: 12px;
+    }
 `;
 
 export const ChannelInfo = styled.div`
@@ -39,6 +47,9 @@ export const ChannelName = styled.div`
     font-weight: 600;
     padding: 10px 0px 0px 10px;
     cursor: pointer;
+    @media only screen and (max-width: 1116px) {
+        font-size: 14px;
+    }
 `;
 
 export const ChannelLogo = styled.img`
@@ -50,10 +61,13 @@ export const ChannelLogo = styled.img`
 
 export const DateVideo = styled.div`
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 70px;
     font-size: 1rem;
     color: ghostwhite;
+    @media only screen and (max-width: 1116px) {
+        font-size: 12px;
+    }
 `;
 
 export const RecommendButton = styled.button`
@@ -68,7 +82,14 @@ export const RecommendButton = styled.button`
     color: ${(props) => (props.active ? 'black' : 'white')};
     border: 1px solid white;
     padding: 5px;    
-    cursor: pointer;
+    cursor: pointer;    
+    @media only screen and (max-width: 1116px) {
+        margin-top: 10px;
+        position: relative;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+    }
 `;
 
 export const SubscribeButton = styled.button`
@@ -83,7 +104,14 @@ export const SubscribeButton = styled.button`
     color: ${(props) => (props.active ? 'white' : 'red')};
     border: 1px solid red;
     padding: 5px;    
-    cursor: pointer;  
+    cursor: pointer;   
+    @media only screen and (max-width: 1116px) {
+        margin-top: 10px;
+        position: relative;
+        top: 0px;
+        right: 0px;
+        width: 100%;
+    }
 `;
 
 export const Description = styled.div`
@@ -91,6 +119,11 @@ export const Description = styled.div`
     color: white;
     width: 75%;
     margin: 10px 40px 0px 80px;
+    @media only screen and (max-width: 1116px) {
+        margin: 10px 10px 10px 10px;
+        width: 100%;
+        font-size: 12px;
+    }
 `;
 
 export const RelatedVideoName = styled.div`
@@ -137,6 +170,7 @@ export const RelatedVideoInfo = styled.div`
     position: absolute;
     color: white;
     bottom: -40px;
+    width: 60%;
     @media only screen and (max-width: 1116px) {
         font-size: 10px;
     }
