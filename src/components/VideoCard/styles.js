@@ -11,10 +11,11 @@ export const VideoForm = styled.div`
 
 export const VideoBanner = styled.img`
     height: 240px;
-    width: 90%;
+    width: 80%;
     border-radius: 15px;    
     @media only screen and (max-width: 900px) {
         height: auto;
+        width: 90%;
     }
 `;
 
@@ -45,7 +46,7 @@ export const VideoInfo = styled.div`
 export const VideoDuration = styled.div`
     position: absolute;
     top: 10px;
-    right: 25px;
+    right: 55px;
     margin-right: 10px;
     font-size: 12px;
     color: white;
