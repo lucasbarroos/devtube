@@ -15,7 +15,7 @@ class User extends Service {
         ok: true,
       })).catch((error) => ({
         ok: false,
-        message: error,
+        message: error.response.data.error || 'Error',
       }));
   }
 
@@ -27,7 +27,7 @@ class User extends Service {
         ok: true,
       })).catch((error) => ({
         ok: false,
-        message: error,
+        message: error.response.data.error || error.response.data.message || 'Error',
       }));
   }
 }

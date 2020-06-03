@@ -52,7 +52,7 @@ const Register = ({ dispatch }) => {
       history.push('/');
       Toastify.addSuccess('Welcome to Devtube');
     } else {
-      Toastify.addError();
+      Toastify.addError(response.message);
     }
   };
 
